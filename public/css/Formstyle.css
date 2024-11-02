@@ -189,6 +189,50 @@ textarea:focus {
     margin-bottom: 5px; /* Space between checkbox sections */
 }
 
+.file-upload-section {
+    margin: 20px 0;
+}
+
+.file-upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    padding: 50px;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.file-upload-box .file-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.file-upload-box p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.file-upload-box input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.pdf-icon{
+    height: 300px;
+
+}
 /* Larger Checkbox Styling */
 input[type="checkbox"] {
     width: 20px; /* Set the width */
