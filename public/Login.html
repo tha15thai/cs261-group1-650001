@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" onsubmit="return false;">
+            <div class="Login-header-image">
+                <img src="images/tu-logo1.png" alt="Login logo">
+            </div>
+            <h1>TU Login</h1>
+            <div id="result" style="display:none;">
+                <h2 style="color: #C3002F;">Login Successful</h2>
+                <p>Name: <span id="displayname_th"></span></p>
+            </div>
+            <h2>Username</h2>
+            <p id="usernameWarning" class="warning-message"></p>
+            <div class="input-box">
+                <input type="text" id="username" placeholder="Enter Username" required>
+                <i class='bx bxs-user'></i>
+                <div class="error-message" id="username-error"></div>
+            </div>
+            <h2>Password</h2>
+            <p id="passwordWarning" class="warning-message"></p>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <i class='bx bxs-lock-alt'></i>
+                <span class="password-toggle" onclick="togglePassword()">
+                    <i class='bx bx-hide' id="togglePassword"></i>
+                </span>
+                <div class="error-message" id="password-error"></div>
+            </div>
+            <button type="submit" class="form-control-submit-button" id="login-btn">Login</button>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
