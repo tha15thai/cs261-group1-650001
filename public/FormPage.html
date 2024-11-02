@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Formstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>แบบฟอร์มการยื่นคำร้องของนักศึกษา</title>
 </head>
 <body>
@@ -18,7 +20,10 @@
             </ul>
         </nav>
     </header>
-    <h2>แบบฟอร์มการยื่นคำร้องของนักศึกษา</h2>
+    <h2 style="display: flex; justify-content: space-between; align-items: center;">
+        แบบฟอร์มการยื่นคำร้องของนักศึกษา
+        <i class="bx bxs-edit"></i>
+    </h2>
     <div class="container">
         <form action="your-server-endpoint" method="post">
             <div class="form-grid">
@@ -44,7 +49,10 @@
 
                 <!-- Personal Information Section -->
                 <div class="form-section col-span-5">
-                    <h3>ข้อมูลส่วนตัว</h3>
+                    <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                        ข้อมูลส่วนตัว
+                        <i class="bx bxs-user"></i>
+                    </label>
                 </div>
 
                 <!-- Personal Information Fields -->
@@ -90,7 +98,7 @@
 
                 <!-- Section: Contact Address -->
                 <div class="form-section col-span-5">
-                    <h3>ที่อยู่ที่สามารถติดต่อได้</h3>
+                    <label class = "form-label">ที่อยู่ที่สามารถติดต่อได้</label>
                 </div>
                 <div class="form-section col-span-1">
                     <input type="text" id="address" name="address" placeholder="บ้านเลขที่" required>
@@ -108,7 +116,7 @@
                 <!-- Section for Reason and Additional Info -->
 <div class="form-grid col-span-5">
     <div class="reason-section col-span-4"> <!-- 4 columns for the reason section -->
-        <h3>เหตุผลที่ยื่นคำร้อง</h3>
+        <label class = "form-label">เหตุผลที่ยื่นคำร้อง</label>
         <textarea id="reason" name="reason" rows="4" placeholder="เหตุผลที่ยื่นคำร้อง" required></textarea>
     </div>
     <div class="additional-info col-span-2" style="display: none;"> <!-- 2 columns for additional info -->
@@ -144,7 +152,7 @@
             </div>
         </div>
         
-        <h3>ข้าพเจ้าขอรับรองว่าไม่มีภาระหนี้ผูกพันกับมหาวิทยาลัย</h3>
+        <h4 class = "h4-label">ข้าพเจ้าขอรับรองว่าไม่มีภาระหนี้ผูกพันกับมหาวิทยาลัย</h4>
         <div class="form-section checkbox-section">
             <input type="checkbox" id="no-debt" name="no-debt">
             <label for="no-debt">ไม่มีภาระหนี้สินคงค้าง</label>
@@ -170,7 +178,7 @@
 </div>
                 <!-- Buttons -->
 <div class="btn-group col-span-5">
-    <div class="button-container"> <!-- New container for centering -->
+    <div class="button-container" style="margin-top: -60px;"> <!-- New container for centering -->
         <button type="button" class="btn btn-cancel" onclick="clearForm()">ยกเลิก</button>
         <button type="submit" class="btn btn-submit">ถัดไป</button>
     </div>

@@ -1,15 +1,27 @@
 /* Global Body Style */
 body {
-    font-family: Arial, sans-serif;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
+    background: url('../images/Form-Background.jpg');
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(1px); /* Increase the blur effect */
+    z-index: -1; /* Keep it behind other elements */
 }
 
 /* Box Sizing */
 * {
+    font-family: "IBM Plex Sans Thai Looped",sans-serif;
     box-sizing: border-box; /* Ensures padding and border are included in element's total width */
 }
 
@@ -19,6 +31,7 @@ body {
     background-color: #4CAF50;
     padding: 8px 15px; /* Slightly reduced padding */
     width: 100%;
+    background: url('../images/header-Background.jpg');
 }
 
 .logo-img {
@@ -34,15 +47,25 @@ body {
 }
 
 .navbar li {
-    margin: 0 10px; /* Reduced margin for navbar items */
+    margin: 0 40px; /* Reduced margin for navbar items */
 }
 
 .navbar a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    font-size: 20px;
 }
-
+h2 i {
+    font-size: 1.2em; /* Adjust icon size */
+    color: #000000; /* Icon color */
+    margin-left: 8px; /* Space between text and icon */
+}
+label i {
+    margin-left: 8px; 
+    font-size: 1.2em; 
+    color: #000000;
+}
 /* Heading Styles */
 h2 {
     text-align: center;
@@ -50,15 +73,36 @@ h2 {
     font-size: 1.5rem; /* Kept larger for readability */
     margin: 20px 0; /* Tighter margin */
 }
+h3 {
+    font-weight: bold;
+    font-size: 0.9rem; /* Kept larger for readability */
+    margin: 5px 0; /* Tighter margin */
+
+}
+h4 {
+    font-weight: bold;
+    font-size: 1rem; /* Kept larger for readability */
+    margin-bottom:10px;
+}
+.h4-label {
+    margin-top: 30px; /* Adjust this value as needed */
+
+}
+
+.form-label {
+    margin-top: 10px; /* Adjust this value as needed */
+    display: block; /* Ensure full width */
+}
 
 /* Form Container */
 .container {
-    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    background: rgba(0, 0, 0, 0.2); /* Dark semi-transparent background */
     padding: 20px; /* Slightly increased padding */
     width: 100%; /* Ensure it takes full width */
     max-width: 1200px;
     border-radius: 20px; /* Reduced border radius */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
 /* Form Grid Adjustments */
@@ -181,8 +225,8 @@ textarea {
 input[type="text"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #4CAF50; /* Highlight color on focus */
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle shadow */
+    border-color: #ff8018; /* Highlight color on focus */
+    box-shadow: 0 0 15px rgba(252, 167, 10, 0.5); /* Subtle shadow */
 }
 
 .checkbox-section {
@@ -252,6 +296,7 @@ input[type="checkbox"] {
     display: flex; /* Use flexbox for alignment */
     justify-content: center; /* Center the buttons */
     gap: 65px; /* Space between buttons */
+    margin-top: 0; /* Remove any top margin if necessary */
 }
 
 .btn {
