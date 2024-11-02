@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.come/css2?family=Poppins:wght@300;400;500;600;700;800;900&display-swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans Thai Looped",sans-serif;
+ }
+
+body {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('TU-Background.jpg');
+    
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(1px); /* Increase the blur effect */
+    z-index: -1; /* Keep it behind other elements */
+}
+.container .Login-header-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Space between the image and the text */
+}
+.container .Login-header-image img{
+    width: 120px; 
+    height: auto; 
+    margin-bottom: 10px; 
+}
+.container {
+    width: 420px;
+    background: transparent;
+    background: rgba(177, 177, 177, 0.4);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: rgb(0, 0, 0);
+    border-radius: 80px;
+    padding: 30px 40px;
+}
+.container h1 {
+    font-size: 36px;
+    text-align: center;
+    font-weight: 700;
+}
+.container h2 {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.container .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding: 0 20px 0 50px;
+    cursor: text;
+}
+
+.input-box input::placeholder{
+    color: grey;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: black;
+}
+
+
+.container .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%; 
+    margin: 20px auto; /* Center the button within the container */
+    height: 45px;
+    background: #ff9900;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    text-align: center;
+
+
+}
+button[type="submit"]:hover {
+    background-color: #dd1e18; /* Darker blue on hover */
+}
+button[type="submit"]:disabled {
+    background-color: #ccc; /* Grey color when disabled */
+}
