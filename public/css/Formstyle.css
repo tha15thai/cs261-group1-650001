@@ -1,0 +1,293 @@
+/* Global Body Style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+/* Box Sizing */
+* {
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 8px 15px; /* Slightly reduced padding */
+    width: 100%;
+}
+
+.logo-img {
+    height: 60px; /* Maintain larger logo */
+    margin-right: 15px; /* Slightly reduced margin */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 10px; /* Reduced margin for navbar items */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Heading Styles */
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem; /* Kept larger for readability */
+    margin: 20px 0; /* Tighter margin */
+}
+
+/* Form Container */
+.container {
+    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    padding: 20px; /* Slightly increased padding */
+    width: 100%; /* Ensure it takes full width */
+    max-width: 1200px;
+    border-radius: 20px; /* Reduced border radius */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Grid Adjustments */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust for three columns */
+    gap: 20px; /* Add spacing between columns */
+}
+/* Style adjustments for topic4-info */
+.topic4-info {
+    grid-column: span 2; /* Ensure it spans the full width of the grid if needed */
+}
+/* Specific Width for Subject and Details Sections */
+.col-span-30 {
+    grid-column: span 1; /* Override to take only 1 column */
+    width: 30%; /* Set to 30% of the available width */
+}
+.signature-date-section {
+    display: flex; /* Use flexbox to align items */
+    gap: 20px; /* Space between the input sections */
+}
+
+.signature-input {
+    width: 200px; /* Adjust width for the signature input */
+    padding: 5px; /* Padding inside the input */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 4px; /* Rounded corners */
+}
+
+label {
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make label text bold for emphasis */
+}
+
+.date-input {
+    border-radius: 15px; /* Round corners for the date input */
+    padding: 5px; /* Padding for the date input */
+    border: 1px solid #ccc; /* Border styling */
+}
+/* Ensure full width for each section */
+.form-section {
+    margin-bottom: -15px; /* Minimal space between sections */  
+}
+
+.reason-and-additional {
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: stretch; /* Make sure both sections stretch to the same height */
+    gap: 2px; /* Tighter space between the sections */
+}
+
+/* This targets the reason section to ensure it uses 4 columns */
+.reason-section {
+    grid-column: span 1; /* Span 1 columns */
+}
+/* Ensure additional-info is properly styled */
+.additional-info {
+    display: grid; /* Change to grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two columns */
+    gap: 10px; /* Spacing between inputs */
+    margin-top: 10px;
+}
+/* This ensures additional-info uses 2 columns */
+.additional-info {
+    grid-column: span 2; /* Span 2 columns */
+}
+.additional-info-container {
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Space between the two sections */
+    margin-top: 10px; /* Optional spacing */
+}
+
+.additional-info, .topic4-info {
+    flex: 1; /* Allow both sections to take equal space */
+    margin-right: 10px; /* Add some spacing between sections */
+}
+
+
+.signature-date-section {
+    display: flex; /* Use flexbox for the signature and date layout */
+    margin-top: 1px; /* Tighter spacing above */
+}
+
+.signature-date-section .form-section {
+    flex: 1; /* Allow each section to take equal space */
+    margin-bottom: 0; /* Removed space between these sections */
+}
+
+/* Specific Full-Width Sections */
+.subject-section, 
+.details-section,
+.col-span-5 {
+    grid-column: span 5; /* Full width for subject and details */
+}
+.col-span-small {
+    grid-column: span 1; /* Allows for 50% width */
+}
+
+/* Single-column elements for small inputs */
+.col-span-1 {
+    grid-column: span 1; /* 1 column for compact items */
+}
+
+/* Input and Select Styles */
+input[type="text"],
+select,
+textarea {
+    width: 100%; /* Fill the column */
+    padding: 12px; /* Reduced padding for compactness */
+    border-radius: 20px; /* Smaller border radius */
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 14px; /* Maintain larger font size for readability */
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Focus State */
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #4CAF50; /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle shadow */
+}
+
+.checkbox-section {
+    margin-bottom: 5px; /* Space between checkbox sections */
+}
+
+/* Larger Checkbox Styling */
+input[type="checkbox"] {
+    width: 20px; /* Set the width */
+    height: 20px; /* Set the height */
+    transform: scale(1.5); /* Scale the checkbox */
+    margin-right: 20px; /* Space between checkbox and label */
+}
+/* Button Styles */
+.btn-group {
+    display: flex; /* Use flexbox for the button group */
+    justify-content: center; /* Center the button container */
+    grid-column: span 5; /* Ensure buttons span the full width */
+    margin-top: 20px; /* add some spacing above the buttons */
+}
+
+.button-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the buttons */
+    gap: 65px; /* Space between buttons */
+}
+
+.btn {
+    padding: 6px 20px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 8px; /* Smaller border radius */
+    font-size: 25px; /* Maintain button readability */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-cancel {
+    background-color: #e74c3c;
+}
+
+.btn-cancel:hover {
+    background-color: #c0392b;
+}
+
+.btn-submit {
+    background-color: #4CAF50;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+/* Adjust overall grid layout to accommodate fixed widths */
+@media screen and (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    } 
+    .signature-date-section, 
+    .additional-info, 
+    .topic4-info {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        width: 100%; /* Full width */
+    }
+
+    .form-section {
+        margin-bottom: 10px; /* Spacing between fields */
+    }
+
+    /* Optional: Adjust button container for mobile */
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Space between buttons */
+    }
+}
+
+/* Media query for mobile responsiveness */
+@media screen and (max-width: 480px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Change to one column for mobile */
+    }
+
+    .signature-date-section, 
+    .additional-info, 
+    .topic4-info {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        width: 100%; /* Full width */
+    }
+
+    .form-section {
+        margin-bottom: 10px; /* Space between fields */
+    }
+
+    /* Adjust button container for mobile */
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Space between buttons */
+    }
+
+    /* Ensure textareas and inputs take full width */
+    input, textarea {
+        width: 100%; /* Full width */
+    }
+}
