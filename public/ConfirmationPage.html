@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Formstyle.css">
+    <title>ยืนยันการส่งคำร้อง</title>
+    <style>
+        /* Center the h2 inside .container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+        
+        .container h2 {
+            color: #4CAF50; /* Success color */
+            font-size: 1.8em;
+            margin-bottom: 150px;
+        }
+        .button-container {
+            display: flex;
+            margin-bottom: -50px;
+        }
+ 
+    </style>
+</head>
+<body>
+     <!-- Header with Logo and Menu -->
+     <header class="header">
+        <div class="logo">
+            <img src="images/tu-logo1.png" alt="Logo" class="logo-img">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2>แบบฟอร์มการยื่นคำร้องของนักศึกษา</h2>
+    <!-- Confirmation Message -->
+    <div class="container">
+        <h2>ส่งคำร้อง สำเร็จ!</h2>
+        <!-- Buttons -->
+        <div class="btn-group col-span-5">
+            <div class="button-container">
+                <button type="submit" class="btn btn-cancel">ยกเลิก</button>
+                <button type="button" class="btn btn-submit" onclick="window.location.href = 'FormPage.html';">ติดตามสถานะคำร้อง</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
