@@ -58,8 +58,14 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(data => {
             if (data.status === true) {
-                document.getElementById("displayname_th").textContent = data.displayname_th;
-                document.getElementById("result").style.display = "block";
+                sessionStorage.setItem("isLoggedIn", "true");
+                sessionStorage.setItem("userType", data.type);
+
+                if (data.type === "student") {
+                    window.location.href = "FormPage.html";
+                } else if (data.type === "employee") {
+                    window.location.href = "EmployeePage.html";
+                }
             } else {
                 alert("Login failed: " + data.message);
             }
@@ -69,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
 
 username.addEventListener('input', validateFields);
 password.addEventListener('input', validateFields);
