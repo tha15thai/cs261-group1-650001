@@ -6,6 +6,7 @@ body {
     align-items: center;
     margin: 0;
     background: url('../images/Form-Background.jpg');
+    background-size: cover;
 }
 body::before {
     content: "";

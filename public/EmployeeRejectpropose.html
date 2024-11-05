@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/EmployeeRejectpro.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>หน้าไม่อนุมัติคำร้อง</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/tu-logo1.png" alt="Logo" class="logo-img">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <h2 style="display: flex; justify-content: space-between; align-items: center;">
+        ตรวจสอบคำร้องของเจ้าหน้าที่ภาคพิเศษ
+        <i class="bx bx-file"></i>
+    </h2>
+
+    <div class="container">
+        <!-- Form section-->
+        <div class ="form-label">โปรดยืนยันการไม่อนุมัติส่งคำร้อง</div>
+        
+        <div class="form-head">โปรดระบุเหตุผล</div>
+
+        <div class="form-input">
+            <textarea placeholder="เขียนข้อความตรงนี้ ..."></textarea>
+        </div>
+        
+        <div class="buttons">
+            <button type="button"  class="btn btn-cancel" onclick="window.location.href = '#';">ยกเลิก</button>
+            <button type="button"  class="btn btn-confirm" onclick="window.location.href = 'EmployeeReject.html';">ยืนยัน</button>
+        </div>
+    </div>
+
+</body>
+</html>
