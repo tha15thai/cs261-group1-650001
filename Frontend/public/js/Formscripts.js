@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editableSubjectInput = document.getElementById('editableSubject');
     const resetButton = document.getElementById('resetButton');
     const additionalInfo = document.querySelector('.additional-info');
+    //const form = document.querySelector('form');
 
     // Event listener for subject selection
     subjectSelect.addEventListener('change', toggleSubject);
@@ -44,8 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    
-
     function showEditableSubject() {
         subjectSelect.style.display = 'none'; // Hide dropdown
         editableSubjectInput.style.display = 'block'; // Show input
@@ -88,4 +87,48 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cancelButton) {
         cancelButton.addEventListener('click', clearForm);
     }
+
+    /* form.addEventListener('submit', (event) => {
+        if (!validateTextField('firstName', 'กรุณากรอกชื่อ') || 
+            !validateTextField('lastName', 'กรุณากรอกนามสกุล') || 
+            !validateStudentID() || 
+            !validatePhoneNumber('student-tel', 'กรุณากรอกเบอร์โทรศัพท์นักศึกษาที่ถูกต้อง') ||
+            !validatePhoneNumber('guardian-tel', 'กรุณากรอกเบอร์โทรศัพท์ผู้ปกครองที่ถูกต้อง')) {
+            event.preventDefault();
+        }
+    });
+
+    function validateTextField(fieldId, errorMessage) {
+        const field = document.getElementById(fieldId);
+        if (field.value.trim() === '') {
+            alert(errorMessage);
+            field.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function validateStudentID() {
+        const studentIDField = document.getElementById('studentID');
+        const studentID = studentIDField.value.trim();
+        if (studentID === '' || studentID.length !== 10 || isNaN(studentID)) {
+            alert('กรุณากรอกรหัสนักศึกษาที่ถูกต้อง (10 หลัก)');
+            studentIDField.focus();
+            return false;
+        }
+        return true;
+    }
+
+    function validatePhoneNumber(fieldId, errorMessage) {
+        const phoneField = document.getElementById(fieldId);
+        const phoneNumber = phoneField.value.trim();
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phoneNumber)) {
+            alert(errorMessage);
+            phoneField.focus();
+            return false;
+        }
+        return true;
+    } */
+
 });
