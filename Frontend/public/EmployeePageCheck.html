@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Formstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Jquery CDN link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>แบบฟอร์มการยื่นคำร้องของนักศึกษา</title>
+</head>
+<body>
+    <!-- Header with Logo and Menu -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/tu-logo1.png" alt="Logo" class="logo-img">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Menu</a></li>
+            </ul>
+        </nav>
+        <div class="popupbar">
+            <!--header section-->
+            <header>
+                <!--Close button-->
+                <div class="close-btnn">
+                <i class="fa fa-times"></i>
+            </div>
+            <!--icon-->
+            <div class="icon">
+            <i class="fa fa-user-circle-o"></i>
+            </div>
+            <!--student info-->
+            <div class="stdinfo">
+                <h3>WELCOME BACK!</h3>
+                <p> นศ xxx </p>
+                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+            </div>
+            </header>
+
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="#"><i class="fa fa-home"></i>Home</a></div>
+                <div class="item"><a href="FormPage.html"><i class="bx bxs-edit"></i>ยื่นคำร้อง</a></div>
+                <div class="item"><a href="#"><i class="fa fa-bell"></i>ติดตามสถานะ</a></div>
+            </div>
+
+            <div class="Logout">
+
+                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+
+            </div>
+
+        </div>
+    </header>
+    <h2 style="display: flex; justify-content: space-between; align-items: center;">
+        แบบฟอร์มการยื่นคำร้องของนักศึกษา
+        <i class="bx bxs-edit"></i>
+    </h2>
+    <div class="container">
+        <form action="your-server-endpoint" method="post">
+            <div class="form-grid">
+                <!-- Subject and Details Section -->
+                <div class="form-section subject-section col-span-30">
+                    <label for="subject">เรื่อง</label>
+                    <select id="subject" name="subject" class="narrow" required onchange="toggleSubject()">
+                        <option value="">เลือกหัวข้อ...</option>
+                        <option value="topic1">จดทะเบียนล่าช้า/เพิ่มล่าช้า</option>
+                        <option value="topic2">ขอถอนวิชา/ถอนรายวิชา (Drop W)</option>
+                        <option value="topic3">ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร</option>
+                        <option value="topic4">ขอลาออก</option>
+                        <option value="other">อื่นๆ</option>
+                    </select>
+                    <input type="text" id="editableSubject" name="editableSubject" placeholder="โปรดระบุเรื่อง" style="display:none; margin-top: 10px;" oninput="validateInput()">
+                    <button type="button" id="resetButton" style="display:none; margin-top: 10px;" onclick="resetSelection()">ยกเลิก</button>
+                </div>
+            
+                <div class="form-section details-section col-span-30">
+                    <label for="details">เรียน</label>
+                    <input type="text" id="details" name="details" class="narrow" required>
+                </div>
+
+                <!-- Personal Information Section -->
+                <div class="form-section col-span-5">
+                    <label style="display: flex; align-items: center; margin-bottom: 10px;">
+                        ข้อมูลส่วนตัว
+                        <i class="bx bxs-user"></i>
+                    </label>
+                </div>
+
+                <!-- Personal Information Fields -->
+                <div class="form-section col-span-small tight-spacing">
+                    <select id="prefix" name="prefix" required>
+                        <option value="">คำนำหน้า...</option>
+                        <option value="นาย">นาย</option>
+                        <option value="นาง">นาง</option>
+                        <option value="นางสาว">นางสาว</option>
+                        <option value="ไม่ระบุ">ไม่ระบุ</option>
+                    </select>
+                </div>
+                <div class="form-section col-span-1 tight-spacing">
+                    <input type="text" id="firstName" name="firstName" placeholder="โปรดกรอกชื่อ" required>
+                </div>
+                <div class="form-section col-span-1 tight-spacing">
+                    <input type="text" id="lastName" name="lastName" placeholder="นามสกุล" required>
+                </div>
+                <div class="form-section col-span-1 tight-spacing">
+                    <input type="text" id="studentID" name="studentID" placeholder="เลขประจำตัวนักศึกษา" required>
+                </div>
+                <div class="form-section col-span-1 tight-spacing">
+                    <select id="year" name="year" required>
+                        <option value="">เลือกชั้นปี...</option>
+                        <option value="1">ปี 1</option>
+                        <option value="2">ปี 2</option>
+                        <option value="3">ปี 3</option>
+                        <option value="4">ปี 4</option>
+                    </select>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="major" name="major" placeholder="สาขาวิชา" required>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="student-tel" name="student-tel" placeholder="เบอร์ติดต่อนักศึกษา" required>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="guardian-tel" name="guardian-tel" placeholder="เบอร์ติดต่อผู้ปกครอง" required>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="advisor" name="advisor" placeholder="อาจารย์ที่ปรึกษา" required>
+                </div>
+
+                <!-- Section: Contact Address -->
+                <div class="form-section col-span-5">
+                    <label class = "form-label">ที่อยู่ที่สามารถติดต่อได้</label>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="address" name="address" placeholder="บ้านเลขที่" required>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="district" name="district" placeholder="แขวง / ตำบล" required>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="city" name="city" placeholder="เขต / อำเภอ" required>
+                </div>
+                <div class="form-section col-span-1">
+                    <input type="text" id="province" name="province" placeholder="จังหวัด" required>
+                </div>
+
+                <!-- Section for Reason and Additional Info -->
+<div class="form-grid col-span-5">
+    <div class="reason-section col-span-4"> <!-- 4 columns for the reason section -->
+        <label class = "form-label">เหตุผลที่ยื่นคำร้อง</label>
+        <textarea id="reason" name="reason" rows="4" placeholder="เหตุผลที่ยื่นคำร้อง" required></textarea>
+    </div>
+    <div class="additional-info col-span-2" style="display: none;"> <!-- 2 columns for additional info -->
+        <h3>ข้อมูลเพิ่มเติม</h3>
+        <div class="form-grid">
+            <div class="form-section">
+                <input type="text" id="semester" name="semester" placeholder="ภาคการศึกษา" required>
+            </div>
+            <div class="form-section">
+                <input type="text" id="academicYear" name="academicYear" placeholder="ปีการศึกษา" required>
+            </div>
+            <div class="form-section">
+                <input type="text" id="courseCode" name="courseCode" placeholder="รหัสวิชา" required>
+            </div>
+            <div class="form-section">
+                <input type="text" id="courseName" name="courseName" placeholder="ชื่อวิชา" required>
+            </div>
+            <div class="form-section">
+                <input type="text" id="section" name="section" placeholder="Section" required>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section for Topic 4 -->
+    <div class="topic4-info" style="display: none;"> <!-- Initially hidden -->
+        <h3>ข้อมูลเพิ่มเติมสำหรับการลาออก</h3>
+        <div class="form-grid">
+            <div class="form-section">
+                <input type="text" id="semester-topic4" name="semester-topic4" placeholder="ภาคการศึกษา" required>
+            </div>
+            <div class="form-section">
+                <input type="text" id="academicYear-topic4" name="academicYear-topic4" placeholder="ปีการศึกษา" required>
+            </div>
+        </div>
+        
+        <h4 class = "h4-label">ข้าพเจ้าขอรับรองว่าไม่มีภาระหนี้ผูกพันกับมหาวิทยาลัย</h4>
+        <div class="form-section checkbox-section">
+            <input type="checkbox" id="no-debt" name="no-debt">
+            <label for="no-debt">ไม่มีภาระหนี้สินคงค้าง</label>
+        </div>
+        <div class="form-section checkbox-section">
+            <input type="checkbox" id="has-debt" name="has-debt">
+            <label for="has-debt">มีภาระหนี้สินคงค้าง จำนวน</label>
+            <input type="text" id="debt-amount" name="debt-amount" placeholder="___ บาท" style="width: auto; margin-left: 10px;">
+        </div>
+    </div>
+</div>
+
+<!-- New Fields: Signature and Date of Application -->
+<div class="signature-date-section">
+    <div class="form-section col-span-1">
+        <label for="signature">ลงชื่อ</label>
+        <input type="text" id="signature" name="signature" placeholder="โปรดลงชื่อ" class="signature-input" required>
+    </div>
+    <div class="form-section col-span-1">
+        <label for="applicationDate">วันที่ยื่นคำร้อง</label>
+        <input type="date" id="applicationDate" name="applicationDate" class="date-input" required>
+    </div>
+</div>
+                <!-- Buttons -->
+<div class="btn-group col-span-5">
+    <div class="button-container" style="margin-top: -60px;"> <!-- New container for centering -->
+        <button type="button" class="btn btn-cancel"  onclick="window.location.href = 'EmployeePage.html';">ยกเลิก</button>
+        <button type="submit" class="btn btn-submit" onclick="window.location.href = 'EmployeePageCheck2.html';" >ถัดไป</button>
+    </div>
+</div>
+        </form>
+    </div>
+    <script src="js/Formscripts.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/CheckLogin.js"></script> -->
+    <script>

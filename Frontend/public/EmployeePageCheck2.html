@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/EmployeeConfirm.css">
+    <link rel="stylesheet" href="css/Formstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>หน้าอนุมัติสำเร็จ</title>
+        <!--Jquery CDN link -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>แบบฟอร์มการยื่นคำร้องของนักศึกษา</title>
 </head>
 <body>
-
-    <!-- Header Section -->
+    <!-- Header with Logo and Menu -->
     <header class="header">
         <div class="logo">
             <img src="images/tu-logo1.png" alt="Logo" class="logo-img">
@@ -22,8 +22,7 @@
                 <li><a href="#">Menu</a></li>
             </ul>
         </nav>
-        
-        <div class="navbar1">
+        <div class="popupbar">
             <!--header section-->
             <header>
                 <!--Close button-->
@@ -57,43 +56,33 @@
 
         </div>
     </header>
-</div>
-
-<!--Jquery CDN link -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-
-<script>
-
-    $(document).ready(function(){
-        //jquery for expand and collapase the side bar
-        $('.navbar').click(function(){
-            $('.navbar1').addClass('active');
-            $('.navbar').css("visibility","hidden")
-        });
-        // for close button
-        $('.close-btnn').click(function(){
-            $('.navbar1').removeClass('active');
-            $('.navbar').css("visibility","Visible")
-        })
-    })
-</script>
 
     <h2 style="display: flex; justify-content: space-between; align-items: center;">
-        ตรวจสอบคำร้องของเจ้าหน้าที่ภาคพิเศษ
-        <i class="bx bx-file"></i>
+        แบบฟอร์มการยื่นคำร้องของนักศึกษา
+        <i class="bx bxs-edit"></i>
     </h2>
-
-    <div class="status-container">
-        <i class="fa fa-check-square-o" ></i>
-        
-        <div class="status-text">อนุมัติสำเร็จ!</div>
-        <div class="sub-text">อยู่ในกระบวนการส่งไปยังอาจารย์ที่ปรึกษา</div>
-        <div class="button-container">
-            <button type="button" class="btn btn-homepage" onclick="window.location.href = 'FormPage.html';">กลับไปหน้าหลัก</button>
-        </div>
+    <div class="container">
+        <!-- Form Start -->
+        <form action="ConfirmationPage.html" method="post" enctype="multipart/form-data">
+            <!-- File Upload Section -->
+            <div class="file-upload-section">
+                <h3>แนบเอกสารเพิ่มเติมเกี่ยวกับการยื่นคำร้อง (ไฟล์.pdf)</h3>
+                <label for="additional-docs" class="file-upload-box">
+                    <img src="images/pdf-icon.png" alt="Pdf Icon" class="pdf-icon">
+                    <p>กรุณาแนบไฟล์ขนาดไม่เกิน 100 kb และจำนวนไม่เกิน 5 ไฟล์</p>
+                    <input type="file" id="additional-docs" name="additional-docs[]" accept=".pdf" multiple>
+                </label>
+            </div>
+            <!-- Buttons -->
+            <div class="btn-group col-span-5">
+                <div class="button-container">
+                    <button type="button" class="btn btn-cancel" onclick="window.location.href = 'EmployeeRejectpropose.html';">ไม่อนุมัติ</button>
+                    <button type="button" class="btn btn-submit" onclick="window.location.href = 'EmployeeConfirme.html';">อนุมัติ</button>
+                </div>
+            </div>
+        </form>
+        <!-- Form End -->
     </div>
-</div>
-
 </body>
+<script src="js/script.js"></script>
 </html>

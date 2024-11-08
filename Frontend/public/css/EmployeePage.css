@@ -88,7 +88,7 @@ body::before {
     border-radius: 100%;
 }
 
-.menu {
+.menu1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -246,14 +246,14 @@ width: 100%;
 margin-top: 30px;
 }
 .menu .item{
-position: relative;
-cursor: pointer;
-border: 1px solid #ccc; /* Add border around each menu item */
-border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc; /* Add border around each menu item */
+    border-radius: 10px;
+    margin-top: 15px;
 }
 
 .menu .item a{
-
 color: #000000;
 font-size: 16px;
 text-decoration: none;
