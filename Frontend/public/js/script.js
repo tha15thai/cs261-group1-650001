@@ -75,7 +75,18 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
+$(document).ready(function(){
+    //jquery for expand and collapase the side bar
+    $('.navbar').click(function(){
+        $('.popupbar').addClass('active');
+        $('.navbar').css("visibility","hidden")
+    });
+    // for close button
+    $('.close-btnn').click(function(){
+        $('.popupbar').removeClass('active');
+        $('.navbar').css("visibility","Visible")
+    })
+})
 
 
 username.addEventListener('input', validateFields);

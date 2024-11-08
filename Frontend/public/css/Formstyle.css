@@ -30,7 +30,7 @@ body::before {
     display: flex;
     align-items: center;
     background-color: #4CAF50;
-    padding: 8px 15px; /* Slightly reduced padding */
+    padding: 10px 15px; /* Slightly reduced padding */
     width: 100%;
     background: url('../images/header-Background.jpg');
 }
@@ -326,6 +326,130 @@ input[type="checkbox"] {
     background-color: #45a049;
 }
 
+.logo-img {
+    height: 60px;
+    margin-right: 15px;
+    width: auto;
+}
+/*Menu*/
+.popupbar{
+background: conic-gradient(from -57.34deg at 50% 50%, #E3E3E3 0deg, #E8B769 180deg, #BB3918 360deg);
+margin-left: -23px;
+width: 250px;
+left: -250px;
+height: 100vh;
+position: fixed;
+top: 0;
+overflow-y: auto;
+transition: 0.6s ease;
+transition-property: left;
+}
+
+header {
+
+background: #E8B769 180deg;
+
+}
+
+.close-btnn{
+position: absolute;
+color: #f5f5f5;
+font-size: 23px;
+right: 0px;
+margin: 15px;
+cursor: pointer;
+}
+.stdinfo {
+    margin-top: -20px;
+    text-align: center;
+}
+.stdinfo h3{
+    margin-top: -10px;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.stdinfo p{
+    margin-top: -20px;
+}
+.stdinfo i{
+    
+    margin-top: -50px;
+}
+.icon i{
+margin: 73px;
+font-size: 100px;
+
+}
+
+.menu{
+width: 100%;
+margin-top: 30px;
+}
+.menu .item{
+position: relative;
+cursor: pointer;
+border: 1px solid #ccc; /* Add border around each menu item */
+border-radius: 10px;
+}
+
+.menu .item a{
+
+color: #000000;
+font-size: 16px;
+text-decoration: none;
+display: block;
+padding: 5px 30px;
+line-height: 60px;
+}
+.item i{
+
+margin-right: 15px;
+
+}
+
+.navbar li {
+    margin: 0 20px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+}
+.popupbar.active{
+    left: 20px;
+    
+    }
+/* New btn*/
+.btn-logout{
+    margin: 60px;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius:  8px;
+    font-size: 23px;    
+    background-color: rgba(170, 54, 54, 0.212);
+    color: rgb(255, 255, 255);
+    border-style: none;
+    cursor: pointer;
+}
+.btn-logout:hover{
+    background-color: rgb(175, 0, 0);
+}
+.menu .item:hover {
+    background-color: #f0f0f0; /* Light background on hover */
+}
+
+.menu .item a:hover {
+    color: #e74c3c; /* Text color on hover */
+}
+.container .fa-check-square-o {
+    color:  rgb(10, 53, 19);
+    font-size: 50px;
+}
 /* Adjust overall grid layout to accommodate fixed widths */
 @media screen and (max-width: 768px) {
     .form-grid {
