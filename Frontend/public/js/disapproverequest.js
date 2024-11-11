@@ -24,7 +24,7 @@ async function disapproveRequest() {
 
         if (response.ok) {
             alert("Request disapproved successfully!");
-            window.location.href = 'EmployeeConfirme.html';
+            window.location.href = 'EmployeeReject.html';
         } else {
             alert("Failed to disapprove request.");
         }

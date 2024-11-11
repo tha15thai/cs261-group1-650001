@@ -1,0 +1,41 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./Frontend
+    ports:
+      - "5501:5501"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - DB_SERVER=host.docker.internal
+      - DB_USER=sa
+      # เปลี่ยนรหัสผ่านตรงตาม Database ตรงนี้
+      - DB_PASSWORD=cs6969
+      - DB_NAME=RequestSystemDB
+    depends_on:
+      - mssql
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      # เปลี่ยนรหัสผ่านตรงตาม Database ตรงนี้
+      - MSSQL_SA_PASSWORD=cs6969
+      - MSSQL_PID=Express
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
