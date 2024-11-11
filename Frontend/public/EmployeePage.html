@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -37,8 +37,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -51,7 +51,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -69,8 +69,8 @@
             <div class="user-info">
                 <img src="images/Blue - Light.png" alt="User  Icon" class="user-icon">
                 <h3>WELCOME BACK!</h3>
-                <p>เจ้าหน้าที่ xxx xxx</p>
-                <p>email@dome.tu.ac.th</p>
+                <p id="user-name-sidebar">เจ้าหน้าที่</p>
+                <p id="user-email-sidebar">email@dome.tu.ac.th</p>
             </div>
             <div class="menu1">
                 <button class="menu-btn new-request">คำร้องใหม่</button>
@@ -87,18 +87,12 @@
                     <span>คำร้องจากนักศึกษาคณะวิทยาศาสตร์</span>
                     <i class='bx bx-filter-alt'></i>
                 </div>
-                <div class="complaint-item">14:30 3/11/67 | เรื่อง จดทะเบียนล่าช้า เรียน xxx นางสาว ชื่อ xxx นามสกุล xxx เหตุผลที่ยื่น xxx ...</div>
-                <div class="complaint-item">12:40 3/11/67 | เรื่อง ขอถอนวิชา/ถอนรายวิชา (Drop W) เรียน xxx นาย ชื่อ xxx นามสกุล xxx เหตุผลที่ยื่น xxx ...</div>
-                <div class="complaint-item">12:00 3/11/67 | เรื่อง ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร เรียน xxx นาย ชื่อ xxx นามสกุล ...</div>
-                <div class="complaint-item">18:30 2/11/67 | เรื่อง ขอลาออก เรียน xxx นางสาว ชื่อ xxx นามสกุล xxx เหตุผลที่ยื่น xxx ...</div>
-                <div class="complaint-item">15:20 2/11/67 | เรื่อง จดทะเบียนล่าช้า เรียน xxx นาย ชื่อ xxx นามสกุล xxx เหตุผลที่ยื่น xxx ...</div>
-                <div class="complaint-item">10:00 2/11/67 | เรื่อง ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร เรียน xxx นางสาว ชื่อ xxx ..</div>
-                <div class="complaint-item">13:15 1/11/67 | เรื่อง ขอถอนวิชา/ถอนรายวิชา (Drop W) เรียน xxx นาย ชื่อ xxx นามสกุล xxx ...</div>
-                <div class="complaint-item"> 9:45 30/10/67| เรื่อง จดทะเบียนล่าช้า เรียน xxx นางสาว ชื่อ xxx นามสกุล xxx เหตุผลที่ยื่น xxx ...</div>
+                <div id="complaint-container"></div>
             </div>
         </div>
     </div>
-
 </body>
 <script src="js/script.js"></script>
+<script src="js/GetUserInfo.js"></script>
+<script src="js/GetRequests.js"></script>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/Formstyle.css">
+    <link rel="stylesheet" href="css/EmployeePageCheck.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,8 +37,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -50,7 +51,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -68,11 +69,11 @@
                     <label for="subject">เรื่อง</label>
                     <select id="subject" name="subject" class="narrow" required onchange="toggleSubject()">
                         <option value="">เลือกหัวข้อ...</option>
-                        <option value="topic1">จดทะเบียนล่าช้า/เพิ่มล่าช้า</option>
-                        <option value="topic2">ขอถอนวิชา/ถอนรายวิชา (Drop W)</option>
-                        <option value="topic3">ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร</option>
-                        <option value="topic4">ขอลาออก</option>
-                        <option value="other">อื่นๆ</option>
+                        <option value="จดทะเบียนล่าช้า/เพิ่มล่าช้า">จดทะเบียนล่าช้า/เพิ่มล่าช้า</option>
+                        <option value="ขอถอนวิชา/ถอนรายวิชา (Drop W)">ขอถอนวิชา/ถอนรายวิชา (Drop W)</option>
+                        <option value="ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร">ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร</option>
+                        <option value="ขอลาออก">ขอลาออก</option>
+                        <option value="อื่นๆ">อื่นๆ</option>
                     </select>
                     <input type="text" id="editableSubject" name="editableSubject" placeholder="โปรดระบุเรื่อง" style="display:none; margin-top: 10px;" oninput="validateInput()">
                     <button type="button" id="resetButton" style="display:none; margin-top: 10px;" onclick="resetSelection()">ยกเลิก</button>
@@ -216,12 +217,13 @@
 <div class="btn-group col-span-5">
     <div class="button-container" style="margin-top: -60px;"> <!-- New container for centering -->
         <button type="button" class="btn btn-cancel"  onclick="window.location.href = 'EmployeePage.html';">ยกเลิก</button>
-        <button type="submit" class="btn btn-submit" onclick="window.location.href = 'EmployeePageCheck2.html';" >ถัดไป</button>
+        <button type="submit" class="btn btn-submit" onclick="goToEmployeePageCheck2()">ถัดไป</button>
     </div>
 </div>
         </form>
     </div>
     <script src="js/Formscripts.js"></script>
     <script src="js/script.js"></script>
-    <!-- <script src="js/CheckLogin.js"></script> -->
-    <script>
+    <script src="js/GetUserInfo.js"></script>
+    <script src="js/employeepagecheck.js"></script>
+    <script src="js/employeepagecheck.js"></script>

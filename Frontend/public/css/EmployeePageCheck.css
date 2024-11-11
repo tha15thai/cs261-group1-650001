@@ -1,0 +1,35 @@
+.file-upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.file-item {
+    background-color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.file-icon {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin-right: 10px;
+    color: #1a73e8; /* Customize the color if desired */
+}
+
+.file-link {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.file-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

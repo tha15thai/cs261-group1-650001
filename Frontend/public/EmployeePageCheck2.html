@@ -36,8 +36,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -50,7 +50,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -75,8 +75,8 @@
             <!-- Buttons -->
             <div class="btn-group col-span-5">
                 <div class="button-container">
-                    <button type="button" class="btn btn-cancel" onclick="window.location.href = 'EmployeeRejectpropose.html';">ไม่อนุมัติ</button>
-                    <button type="button" class="btn btn-submit" onclick="window.location.href = 'EmployeeConfirme.html';">อนุมัติ</button>
+                    <button type="button" class="btn btn-cancel" onclick="redirectToDisapprove()">ไม่อนุมัติ</button>
+                    <button type="button" class="btn btn-submit" onclick="approveRequest()">อนุมัติ</button>
                 </div>
             </div>
         </form>
@@ -85,4 +85,17 @@
 </body>
 <script src="js/script.js"></script>
 <script src="js/GetUserInfo.js"></script>
+<script src="js/fileRequest.js"></script>
+<script src="js/approveRequest.js"></script>
+<script>
+    function redirectToDisapprove() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const requestId = urlParams.get('request_id');
+        if (requestId) {
+            window.location.href = `EmployeeRejectpropose.html?request_id=${requestId}`;
+        } else {
+            alert("Request ID not found.");
+        }
+    }
+</script>   
 </html>
