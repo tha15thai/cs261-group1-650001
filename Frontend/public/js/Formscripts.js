@@ -3,132 +3,141 @@ document.addEventListener('DOMContentLoaded', () => {
     const editableSubjectInput = document.getElementById('editableSubject');
     const resetButton = document.getElementById('resetButton');
     const additionalInfo = document.querySelector('.additional-info');
-    //const form = document.querySelector('form');
+    const topic4Info = document.querySelector('.topic4-info');
 
-    // Event listener for subject selection
+    setTimeout(toggleSubject, 100);
+
     subjectSelect.addEventListener('change', toggleSubject);
     resetButton.addEventListener('click', resetSelection);
 
     function toggleSubject() {
-        const subjectSelect = document.getElementById('subject');
-        const editableSubjectInput = document.getElementById('editableSubject');
-        const resetButton = document.getElementById('resetButton');
-        const additionalInfo = document.querySelector('.additional-info');
-        const topic4Info = document.querySelector('.topic4-info'); // New variable for topic 4 info
-    
-        // If "อื่นๆ" is selected, show the input field
-        if (subjectSelect.value === 'other') {
-            subjectSelect.style.display = 'none'; // Hide dropdown
-            editableSubjectInput.style.display = 'block'; // Show input
-            editableSubjectInput.value = ''; // Clear previous input
-            editableSubjectInput.focus(); // Focus on the input
-            resetButton.style.display = 'block'; // Show reset button
-            additionalInfo.style.display = 'none'; // Hide additional info
-            topic4Info.style.display = 'none'; // Hide topic 4 info
+        if (subjectSelect.value === 'อื่นๆ') {
+            subjectSelect.style.display = 'none';
+            editableSubjectInput.style.display = 'block';
+            editableSubjectInput.value = '';
+            editableSubjectInput.focus();
+            resetButton.style.display = 'block';
+            additionalInfo.style.display = 'none';
+            topic4Info.style.display = 'none';
         } else {
-            // Show dropdown and hide input for other selections
-            editableSubjectInput.style.display = 'none'; // Hide input
-            subjectSelect.style.display = 'block'; // Show dropdown
-            resetButton.style.display = 'none'; // Hide reset button
-    
-            // Show additional info for specific topics
-            if (['topic1', 'topic2', 'topic3'].includes(subjectSelect.value)) {
-                additionalInfo.style.display = 'block'; // Show additional info box
-                topic4Info.style.display = 'none'; // Hide topic 4 info
-            } else if (subjectSelect.value === 'topic4') {
-                additionalInfo.style.display = 'none'; // Hide additional info for other topics
-                topic4Info.style.display = 'block'; // Show topic 4 info
+            editableSubjectInput.style.display = 'none';
+            subjectSelect.style.display = 'block';
+            resetButton.style.display = 'none';
+
+            if (['จดทะเบียนล่าช้า/เพิ่มล่าช้า', 'ขอถอนวิชา/ถอนรายวิชา (Drop W)', 'ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร'].includes(subjectSelect.value)) {
+                additionalInfo.style.display = 'block';
+                topic4Info.style.display = 'none';
+            } else if (subjectSelect.value === 'ขอลาออก') {
+                additionalInfo.style.display = 'none';
+                topic4Info.style.display = 'block';
             } else {
-                additionalInfo.style.display = 'none'; // Hide if not relevant
-                topic4Info.style.display = 'none'; // Hide topic 4 info
+                additionalInfo.style.display = 'none';
+                topic4Info.style.display = 'none';
             }
-        }
-    }
-    
-    function showEditableSubject() {
-        subjectSelect.style.display = 'none'; // Hide dropdown
-        editableSubjectInput.style.display = 'block'; // Show input
-        editableSubjectInput.value = ''; // Clear previous input
-        editableSubjectInput.focus(); // Focus on the input
-        resetButton.style.display = 'block'; // Show reset button
-        additionalInfo.style.display = 'none'; // Hide additional info
-    }
-
-    function hideEditableSubject() {
-        editableSubjectInput.style.display = 'none'; // Hide input
-        subjectSelect.style.display = 'block'; // Show dropdown
-        resetButton.style.display = 'none'; // Hide reset button
-    }
-
-    function validateInput() {
-        // Clear dropdown value if input is filled
-        if (editableSubjectInput.value.trim() !== '') {
-            subjectSelect.value = ''; // Clear the dropdown value
         }
     }
 
     function resetSelection() {
-        // Reset the dropdown and hide the input
-        subjectSelect.value = ''; // Reset dropdown to default
-        editableSubjectInput.style.display = 'none'; // Hide input
-        editableSubjectInput.value = ''; // Clear input value
-        subjectSelect.style.display = 'block'; // Show dropdown
-        resetButton.style.display = 'none'; // Hide reset button
-        additionalInfo.style.display = 'none'; // Hide additional info on reset
+        subjectSelect.value = '';
+        editableSubjectInput.style.display = 'none';
+        editableSubjectInput.value = '';
+        subjectSelect.style.display = 'block';
+        resetButton.style.display = 'none';
+        additionalInfo.style.display = 'none';
+        topic4Info.style.display = 'none';
     }
 
     function clearForm() {
         document.querySelector('form').reset();
-        additionalInfo.style.display = 'none'; // Hide additional info on reset
+        additionalInfo.style.display = 'none';
+        topic4Info.style.display = 'none';
     }
 
-    // Attach clearForm function to cancel button (assuming it exists in your HTML)
     const cancelButton = document.querySelector('.btn-cancel');
     if (cancelButton) {
         cancelButton.addEventListener('click', clearForm);
     }
+});
 
-    /* form.addEventListener('submit', (event) => {
-        if (!validateTextField('firstName', 'กรุณากรอกชื่อ') || 
-            !validateTextField('lastName', 'กรุณากรอกนามสกุล') || 
-            !validateStudentID() || 
-            !validatePhoneNumber('student-tel', 'กรุณากรอกเบอร์โทรศัพท์นักศึกษาที่ถูกต้อง') ||
-            !validatePhoneNumber('guardian-tel', 'กรุณากรอกเบอร์โทรศัพท์ผู้ปกครองที่ถูกต้อง')) {
-            event.preventDefault();
-        }
-    });
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-    function validateTextField(fieldId, errorMessage) {
+    const requiredFields = [
+        'subject', 'details', 'prefix', 'firstName', 'lastName', 'studentID', 'year', 'major',
+        'student-tel', 'guardian-tel', 'advisor', 'address', 'district', 'city', 'province', 
+        'reason', 'signature', 'applicationDate'
+    ];
+
+    const subject = document.getElementById('subject').value;
+
+    if (['จดทะเบียนล่าช้า/เพิ่มล่าช้า', 'ขอถอนวิชา/ถอนรายวิชา (Drop W)', 'ขอจดทะเบียนศึกษารายวิชาข้ามหลักสูตร'].includes(subject)) {
+        requiredFields.push('semester', 'academicYear', 'courseCode', 'courseName', 'section');
+    } else if (subject === 'ขอลาออก') {
+        requiredFields.push('semester-topic4', 'academicYear-topic4');
+    }
+
+    for (const fieldId of requiredFields) {
         const field = document.getElementById(fieldId);
-        if (field.value.trim() === '') {
-            alert(errorMessage);
+        if (field && field.offsetParent !== null && field.value.trim() === '') {
+            const fieldName = field.placeholder || (field.labels ? field.labels[0].innerText : "ข้อมูลที่ต้องกรอก");
+            alert(`กรุณากรอกข้อมูลในช่อง ${fieldName}`);
             field.focus();
-            return false;
+            return;
         }
-        return true;
     }
 
-    function validateStudentID() {
-        const studentIDField = document.getElementById('studentID');
-        const studentID = studentIDField.value.trim();
-        if (studentID === '' || studentID.length !== 10 || isNaN(studentID)) {
-            alert('กรุณากรอกรหัสนักศึกษาที่ถูกต้อง (10 หลัก)');
-            studentIDField.focus();
-            return false;
+    const formData = {
+        subject: document.getElementById('subject').value,
+        details: document.getElementById('details').value,
+        title: document.getElementById('prefix').value,
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        studentID: document.getElementById('studentID').value,
+        year: document.getElementById('year').value,
+        major: document.getElementById('major').value,
+        studentTel: document.getElementById('student-tel').value,
+        parentTel: document.getElementById('guardian-tel').value,
+        advisor: document.getElementById('advisor').value,
+        address: document.getElementById('address').value,
+        district: document.getElementById('district').value,
+        city: document.getElementById('city').value,
+        province: document.getElementById('province').value,
+        reason: document.getElementById('reason').value,
+        semester: document.getElementById('semester-topic4')?.value || '',
+        academicYear: document.getElementById('academicYear-topic4')?.value || '',
+        courseCode: document.getElementById('courseCode')?.value || '',
+        courseName: document.getElementById('courseName')?.value || '',
+        section: document.getElementById('section')?.value || '',
+        debtConfirmation: document.getElementById('no-debt').checked ? 'false' : 'true',
+        debtAmount: document.getElementById('debt-amount').value || '',
+        signature: document.getElementById('signature').value,
+        applicationDate: document.getElementById('applicationDate').value,
+        status: 'waiting'
+    };
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+
+    window.location.href = 'FormFilePage.html';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const noDebtCheckbox = document.getElementById('no-debt');
+    const hasDebtCheckbox = document.getElementById('has-debt');
+    const debtAmountInput = document.getElementById('debt-amount');
+
+    function handleDebtSelection(event) {
+        if (event.target === noDebtCheckbox && noDebtCheckbox.checked) {
+            hasDebtCheckbox.checked = false;
+            debtAmountInput.disabled = true;
+            debtAmountInput.value = '';
+        } else if (event.target === hasDebtCheckbox && hasDebtCheckbox.checked) {
+            noDebtCheckbox.checked = false;
+            debtAmountInput.disabled = false;
         }
-        return true;
     }
 
-    function validatePhoneNumber(fieldId, errorMessage) {
-        const phoneField = document.getElementById(fieldId);
-        const phoneNumber = phoneField.value.trim();
-        const phonePattern = /^[0-9]{10}$/;
-        if (!phonePattern.test(phoneNumber)) {
-            alert(errorMessage);
-            phoneField.focus();
-            return false;
-        }
-        return true;
-    } */
+    noDebtCheckbox.addEventListener('change', handleDebtSelection);
+    hasDebtCheckbox.addEventListener('change', handleDebtSelection);
 
+    debtAmountInput.disabled = !hasDebtCheckbox.checked;
 });
