@@ -39,8 +39,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -53,7 +53,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -71,11 +71,12 @@
         <div class="status-text">อนุมัติสำเร็จ!</div>
         <div class="sub-text">อยู่ในกระบวนการส่งไปยังอาจารย์ที่ปรึกษา</div>
         <div class="button-container">
-            <button type="button" class="btn btn-homepage" onclick="window.location.href = 'FormPage.html';">กลับไปหน้าหลัก</button>
+            <button type="button" class="btn btn-homepage" onclick="window.location.href = 'EmployeePage.html';">กลับไปหน้าหลัก</button>
         </div>
     </div>
 </div>
 
 </body>
 <script src="js/script.js"></script>
+<script src="js/GetUserInfo.js"></script>
 </html>

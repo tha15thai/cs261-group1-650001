@@ -59,8 +59,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -73,7 +73,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -91,11 +91,14 @@
         <!-- Buttons -->
         <div class="btn-group col-span-5">
             <div class="button-container">
-                <button type="submit" class="btn btn-cancel">ยกเลิก</button>
-                <button type="button" class="btn btn-submit" onclick="window.location.href = 'FormPage.html';">ติดตามสถานะคำร้อง</button>
+                <button type="button" class="btn btn-cancel" onclick="cancelRequest()">ยกเลิก</button>
+                <button type="button" class="btn btn-submit" onclick="confirmRequest()">ส่งคำร้อง</button>
             </div>
         </div>
     </div>
 </body>
 <script src="js/script.js"></script>
+<script src="js/cancelrequest.js"></script>
+<script src="js/confirmrequest.js"></script>
+<script src="js/GetUserInfo.js"></script>
 </html>

@@ -1,4 +1,4 @@
-const loginBtn = document.getElementById('btn');
+const loginBtn = document.querySelector('.form-control-submit-button');
 const username = document.getElementById('username');
 const password = document.getElementById('password');
 
@@ -37,57 +37,69 @@ function validateFields() {
     loginBtn.disabled = !isValid;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("login-btn").addEventListener("click", function() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+async function handleLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const messageElement = document.getElementById('message');
 
-        const data = {
-            "UserName": username,
-            "PassWord": password
-        };
-
-        fetch('https://restapi.tu.ac.th/api/v1/auth/Ad/verify2', {
+    try {
+        const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Application-Key': 'TU15155cbae9f02b0f01554634b97e2febe213f611858b5cf923a3655ba3c810466fb155600418f472fb7bd423c6c3e1fb'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === true) {
-                sessionStorage.setItem("isLoggedIn", "true");
-                sessionStorage.setItem("userType", data.type);
-
-                if (data.type === "student") {
-                    window.location.href = "FormPage.html";
-                } else if (data.type === "employee") {
-                    window.location.href = "EmployeePage.html";
-                }
-            } else {
-                alert("Login failed: " + data.message);
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
+            body: JSON.stringify({ username, password })
         });
-    });
-});
+
+        const data = await response.json();
+
+        if (data.success) {
+            sessionStorage.setItem("isLoggedIn", "true");
+            sessionStorage.setItem('username', data.user.username);
+            messageElement.textContent = 'Login successful!';
+
+            if (data.user.username === '6609650699') {
+                window.location.href = './EmployeePage.html';
+            } else if (data.user.type === 'student') {
+                window.location.href = './FormPage.html';
+            } else if (data.user.type === 'employee') {
+                window.location.href = './EmployeePage.html';
+            } else {
+                messageElement.textContent = 'User type not specified or unknown. Please contact support.';
+            }
+        } else {
+            messageElement.textContent = data.message;
+        }
+        
+    } catch (error) {
+        console.error('Error during login:', error);
+        messageElement.textContent = 'Error during login';
+    }
+}
+
 $(document).ready(function(){
-    //jquery for expand and collapase the side bar
     $('.navbar').click(function(){
         $('.popupbar').addClass('active');
         $('.navbar').css("visibility","hidden")
     });
-    // for close button
     $('.close-btnn').click(function(){
         $('.popupbar').removeClass('active');
         $('.navbar').css("visibility","Visible")
     })
 })
 
+document.addEventListener("DOMContentLoaded", function() {
+    if (sessionStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "Login.html";
+    }
+});
+
+function logout() {
+    sessionStorage.removeItem("isLoggedIn");
+    sessionStorage.removeItem("userType");
+    
+    window.location.href = "Login.html";
+}
 
 username.addEventListener('input', validateFields);
 password.addEventListener('input', validateFields);

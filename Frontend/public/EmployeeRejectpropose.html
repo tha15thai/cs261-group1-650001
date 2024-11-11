@@ -39,8 +39,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -53,7 +53,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -70,17 +70,18 @@
         <div class ="form-label">โปรดยืนยันการไม่อนุมัติส่งคำร้อง</div>
         
         <div class="form-head">โปรดระบุเหตุผล</div>
-
         <div class="form-input">
-            <textarea placeholder="เขียนข้อความตรงนี้ ..."></textarea>
+            <textarea id="disapproveReason" placeholder="เขียนข้อความตรงนี้ ..."></textarea>
         </div>
         
         <div class="buttons">
-            <button type="button"  class="btn btn-cancel" onclick="window.location.href = '#';">ยกเลิก</button>
-            <button type="button"  class="btn btn-confirm" onclick="window.location.href = 'EmployeeReject.html';">ยืนยัน</button>
+            <button type="button"  class="btn btn-cancel" onclick="window.location.href = 'EmployeePage.html';">ยกเลิก</button>
+            <button type="button"  class="btn btn-confirm" onclick="disapproveRequest()">ยืนยัน</button>
         </div>
     </div>
 
 </body>
 <script src="js/script.js"></script>
+<script src="js/GetUserInfo.js"></script>
+<script src="js/disapproverequest.js"></script>
 </html>

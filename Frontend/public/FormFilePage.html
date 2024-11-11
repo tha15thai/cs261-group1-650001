@@ -36,8 +36,8 @@
             <!--student info-->
             <div class="stdinfo">
                 <h3>WELCOME BACK!</h3>
-                <p> นศ xxx </p>
-                <i class="fa fa-envelope-open-o"> xxxxxxxxx@dome.tu.ac.th</i>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
             </div>
             </header>
 
@@ -50,7 +50,7 @@
 
             <div class="Logout">
 
-                <button type="button" class="btn btn-logout" onclick="window.location.href = '#';">Logout</button>
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
 
             </div>
 
@@ -63,26 +63,31 @@
     </h2>
     <div class="container">
         <!-- Form Start -->
-        <form action="ConfirmationPage.html" method="post" enctype="multipart/form-data">
+        <form id="request-form" action="ConfirmationPage.html" method="post" enctype="multipart/form-data">
             <!-- File Upload Section -->
             <div class="file-upload-section">
                 <h3>แนบเอกสารเพิ่มเติมเกี่ยวกับการยื่นคำร้อง (ไฟล์.pdf)</h3>
                 <label for="additional-docs" class="file-upload-box">
                     <img src="images/pdf-icon.png" alt="Pdf Icon" class="pdf-icon">
                     <p>กรุณาแนบไฟล์ขนาดไม่เกิน 100 kb และจำนวนไม่เกิน 5 ไฟล์</p>
-                    <input type="file" id="additional-docs" name="additional-docs[]" accept=".pdf" multiple>
+                    <input type="file" id="additional-docs" name="files" accept=".pdf" multiple onchange="displaySelectedFiles()">
                 </label>
+                <!-- Display selected file names -->
+                <div id="selected-files-list" class="selected-files-list"></div>
             </div>
             <!-- Buttons -->
             <div class="btn-group col-span-5">
                 <div class="button-container">
                     <button type="button" class="btn btn-cancel" onclick="window.location.href = 'FormPage.html';">ย้อนกลับ</button>
-                    <button type="submit" class="btn btn-submit">ส่งคำร้อง</button>
+                    <button type="submit" class="btn btn-submit" onclick="submitRequestForm(event)">ส่งคำร้อง</button>
+
                 </div>
             </div>
-        </form>
+        </form>                  
         <!-- Form End -->
     </div>
 </body>
+<script src="js/FormFilePage.js"></script>
 <script src="js/script.js"></script>
+<script src="js/GetUserInfo.js"></script>
 </html>
