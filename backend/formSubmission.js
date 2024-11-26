@@ -42,7 +42,7 @@ router.post('/submit-form', upload, async (req, res) => {
             subject, details, firstName, lastName, studentID, year, major, studentTel, 
             parentTel, advisor, address, district, city, province, reason, semester, 
             academicYear, courseCode, courseName, section, debtConfirmation, 
-            debtAmount, title, signature, applicationDate 
+            debtAmount, title, signature, applicationDate, username // เพิ่ม username
         } = req.body;
 
         const initialStatus = "waiting";
@@ -53,6 +53,7 @@ router.post('/submit-form', upload, async (req, res) => {
         let pool = await sql.connect(dbConfig);
 
         const insertRequest = await pool.request()
+            .input('username', sql.NVarChar, username) // เพิ่ม input สำหรับ username
             .input('subject', sql.NVarChar, subject)
             .input('details', sql.NVarChar, details)
             .input('firstName', sql.NVarChar, firstName)
@@ -78,16 +79,16 @@ router.post('/submit-form', upload, async (req, res) => {
             .input('title', sql.NVarChar, title)
             .input('signature', sql.NVarChar, signature)
             .input('applicationDate', sql.Date, parsedApplicationDate)
-            .input('status', sql.NVarChar, initialStatus) // Set initial status as "waiting"
+            .input('status', sql.NVarChar, initialStatus)
             .query(`
                 INSERT INTO Requests 
-                (subject, details, firstName, lastName, studentID, year, major, studentTel, 
+                (username, subject, details, firstName, lastName, studentID, year, major, studentTel, 
                 parentTel, advisor, address, district, city, province, reason, semester, 
                 academicYear, courseCode, courseName, section, debtConfirmation, debtAmount, 
                 title, signature, applicationDate, status) 
                 OUTPUT INSERTED.request_id
                 VALUES 
-                (@subject, @details, @firstName, @lastName, @studentID, @year, @major, 
+                (@username, @subject, @details, @firstName, @lastName, @studentID, @year, @major, 
                 @studentTel, @parentTel, @advisor, @address, @district, @city, @province, 
                 @reason, @semester, @academicYear, @courseCode, @courseName, @section, 
                 @debtConfirmation, @debtAmount, @title, @signature, @applicationDate, @status)
@@ -125,7 +126,7 @@ router.get("/requests", async (req, res) => {
             parentTel, advisor, address, district, city, province, reason, status, created_at, updated_at, 
             semester, academicYear, courseCode, courseName, section, debtConfirmation, debtAmount, title
             FROM Requests
-            WHERE status = 'waiting'  -- Filter for only "waiting" status
+            WHERE status = 'pending'  -- Filter for only "waiting" status
             ORDER BY created_at DESC
         `);
         
