@@ -1,0 +1,97 @@
+.Home-wallpaper {
+    display: flex; /* Enables flexbox */
+    align-items: center; /* Centers content vertically */
+    justify-content: flex-start; /* Aligns content to the left */
+    height: 45vh; /* Set height as needed */
+    width: 100vw; /* Ensure full width of viewport */
+    background: url('../images/home-wallpaper.png') no-repeat center center;
+    background-size:cover; /* Ensure the background covers the section */
+    position: relative; /* Enable pseudo-elements or positioning */
+    padding-left: 20px; /* Add padding to avoid text touching the edge */
+    z-index: 1; /* Ensure it layers correctly */
+}
+.Home-wallpaper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Optional overlay */
+    z-index: 0; /* Keep it behind content */
+}
+.Home-wallpaper .content {
+    position: relative;
+    z-index: 1; /* Ensure text stays above the overlay */
+    text-align: left; /* Align text to the left */
+    color: white; /* White text for contrast */
+    padding: 20px; /* Add spacing inside the content block */
+}
+.Home-wallpaper .content h1 {
+    font-size: 4rem; /* Adjust size as needed */
+    line-height: 1.5; /* Control spacing between lines */
+    color: white; /* Ensure good contrast against the background */
+    margin: 0; /* Remove default margins */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Make text prominent */
+}
+.below-wallpaper-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack content vertically */
+    padding: 40px 20px; /* Add spacing */
+    text-align: center; /* Center align text */
+    background-color: transparent 
+}
+.below-wallpaper-container {
+    margin-top: 60px; /*space above the container */
+}
+/* Box container styling */
+.below-wallpaper-container .box-container {
+    display: flex; /* Align boxes horizontally */
+    justify-content: center; /* Center boxes */
+    gap: 200px; /* Space between boxes */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+/* Individual box styling */
+.below-wallpaper-container .box {
+    display: flex;
+    flex-direction: column; /* Stack text and icon vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 400px; /* Fixed width */
+    height: 220px; /* Fixed height */
+    background-color: rgba(255, 229, 162, 0.6); /* Box background color */
+    color: rgba(70, 70, 70, 1); /* Text color */
+    font-size: 1.6rem; /* Font size for text */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+    transition: transform 0.3s, background-color 0.3s; /* Smooth hover effect */
+    padding: 10px;
+}
+/* Icon styling */
+.below-wallpaper-container .box i {
+    font-size: 5rem; /* Icon size */
+    margin-top: 10px; /* Space between text and icon */
+    color: rgba(70, 70, 70, 1); /* Icon color */
+    margin-bottom: 5px; /* Space below icon */
+}
+/* Hover effect for boxes */
+.below-wallpaper-container .box:hover {
+    background-color: rgb(255, 212, 104); 
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+hr {
+    margin-top: 50px;
+}
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .below-wallpaper-container .box {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Adjust height */
+    }
+}
