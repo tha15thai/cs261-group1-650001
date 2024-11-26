@@ -42,19 +42,7 @@ sql.connect(dbConfig).then(pool => {
             console.error('Database error:', error);
             res.status(500).json({ success: false, message: 'Database error' });
         }
-    });
-
-    // Route to retrieve all requests
-    app.get('/api/requests', async (req, res) => {
-        try {
-            const result = await pool.request().query('SELECT * FROM Requests');
-            res.json({ success: true, data: result.recordset });
-        } catch (error) {
-            console.error('Database error:', error);
-            res.status(500).json({ success: false, message: 'Failed to retrieve requests.' });
-        }
-    });
-
+    });      
 }).catch(error => {
     console.error('Database connection failed:', error);
 });
@@ -146,6 +134,56 @@ app.get('/api/user', async (req, res) => {
     }
 });
 
+app.get('/api/requests', async (req, res) => {
+    try {
+        const result = await pool.request().query('SELECT * FROM Requests');
+        res.json({ success: true, data: result.recordset });
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ success: false, message: 'Failed to retrieve requests.' });
+    }
+});
+
+app.get('/api/requests/:username', async (req, res) => {
+    try {
+        const { username } = req.params;
+        const pool = await sql.connect(dbConfig);
+
+        const result = await pool.request()
+            .input('username', sql.VarChar, username)
+            .query('SELECT * FROM Requests WHERE username = @username');
+
+        if (result.recordset.length > 0) {
+            res.json(result.recordset);
+        } else {
+            res.status(404).json({ message: 'No requests found for this user' });
+        }
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
+
+app.get('/api/requests/status/:username', async (req, res) => {
+    try {
+        const { username } = req.params;
+        const pool = await sql.connect(dbConfig);
+
+        const result = await pool.request()
+            .input('username', sql.VarChar, username)
+            .query('SELECT request_id, subject, created_at, status FROM Requests WHERE username = @username');
+
+        if (result.recordset.length > 0) {
+            res.json({ success: true, data: result.recordset });
+        } else {
+            res.status(404).json({ success: false, message: 'No requests found for this user' });
+        }
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
 app.get('/api/request/:requestId', async (req, res) => {
     try {
         const { requestId } = req.params;
@@ -183,6 +221,49 @@ app.get('/api/request/files/:requestId', async (req, res) => {
     } catch (error) {
         console.error('Database error:', error);
         res.status(500).json({ message: 'Server error' });
+    }
+});
+
+app.get('/api/requests/filter/:filterType', async (req, res) => {
+    const { filterType } = req.params;
+
+    try {
+        const pool = await sql.connect(dbConfig);
+        let query = '';
+
+        if (filterType === 'new') {
+            query = 'SELECT * FROM Requests WHERE isread = 0 AND status != \'cancel\'';
+        } else if (filterType === 'inProgress') {
+            query = 'SELECT * FROM Requests WHERE status = \'pending\'';
+        } else if (filterType === 'history') {
+            query = 'SELECT * FROM Requests WHERE status IN (\'approved\', \'disapproved\')';
+        } else {
+            return res.status(400).json({ success: false, message: 'Invalid filter type' });
+        }
+
+        console.log(`Executing Query: ${query}`);
+        const result = await pool.request().query(query);
+
+        res.json({ success: true, data: result.recordset });
+    } catch (error) {
+        console.error('Error filtering requests:', error);
+        res.status(500).json({ success: false, message: 'Failed to retrieve requests.' });
+    }
+});
+
+app.patch('/api/requests/:requestId/read', async (req, res) => {
+    const { requestId } = req.params;
+
+    try {
+        const pool = await sql.connect(dbConfig);
+        await pool.request()
+            .input('requestId', sql.Int, requestId)
+            .query('UPDATE Requests SET isread = 1 WHERE request_id = @requestId');
+
+        res.json({ success: true, message: 'Request marked as read.' });
+    } catch (error) {
+        console.error('Error updating request:', error);
+        res.status(500).json({ success: false, message: 'Failed to update request.' });
     }
 });
 
