@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Formstyle.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@100;200;300;400;500;600;700&family=Itim&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Jquery CDN link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>หน้าหลัก</title>
+</head>
+<body>
+    <!-- Header with Logo and Menu -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/tu-logo1.png" alt="Logo" class="logo-img">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Menu</a></li>
+            </ul>
+        </nav>
+        <div class="popupbar">
+            <!--header section-->
+            <header>
+                <!--Close button-->
+                <div class="close-btnn">
+                <i class="fa fa-times"></i>
+            </div>
+            <!--icon-->
+            <div class="icon">
+            <i class="fa fa-user-circle-o"></i>
+            </div>
+            <!--student info-->
+            <div class="stdinfo">
+                <h3>WELCOME BACK!</h3>
+                <p> <span id="user-name">นศ xxx</span></p>
+                <i class="fa fa-envelope-open-o"> <span id="user-email">xxxxxxxxx@dome.tu.ac.th</span></i>
+            </div>
+            </header>
+            <!--Menu items-->
+            <div class="menu">
+                <div class="item"><a href="Home.html"><i class="fa fa-home"></i>Home</a></div>
+                <div class="item"><a href="FormPage.html"><i class="bx bxs-edit"></i>ยื่นคำร้อง</a></div>
+                <div class="item"><a href="check-status.html"><i class="fa fa-bell"></i>ติดตามสถานะ</a></div>
+            </div>
+            <div class="Logout">
+                <button type="button" class="btn btn-logout" onclick="logout()">Logout</button>
+            </div>
+    </header>
+        <!-- Wallpaper Section -->
+        <div class="Home-wallpaper">
+            <div class="content">
+            <h1>Welcome To</h1>
+            <h1>Thammasat University</h1>
+            <h1>Request Forms Website</h1>
+            </div>
+        </div>
+    
+        <!-- Section Below Wallpaper -->
+        <div class="below-wallpaper-container">
+            <div class="box-container">
+                <a href="FormPage.html" class="box">
+                    ยื่นคำร้องรายวิชาต่างๆ
+                    <i class="bx bx-edit"></i> <!-- Icon for "Submit Requests" -->
+                </a>
+                <a href="check-status.html" class="box">
+                    ตรวจสอบสถานะคำร้อง
+                    <i class="bx bx-search-alt"></i> <!-- Icon for "Check Status" -->
+                </a>
+                <a href="submission-history.html" class="box">
+                    ประวัติการยื่นคำร้อง
+                    <i class="bx bx-history"></i> <!-- Icon for "Submission History" -->
+                </a>
+            </div>
+        </div>
+        <hr color="grey" width="90%" size="2" >
+    </body>
+    <script src="js/script.js"></script>
+    <script src="js/GetUserInfo.js"></script>
