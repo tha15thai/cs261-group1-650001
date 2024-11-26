@@ -19,7 +19,7 @@ services:
       - DB_SERVER=host.docker.internal
       - DB_USER=sa
       # เปลี่ยนรหัสผ่านตรงตาม Database ตรงนี้
-      - DB_PASSWORD=cs6969
+      - DB_PASSWORD=YourStrong@Passw0rd
       - DB_NAME=RequestSystemDB
     depends_on:
       - mssql
@@ -31,7 +31,7 @@ services:
     environment:
       - ACCEPT_EULA=Y
       # เปลี่ยนรหัสผ่านตรงตาม Database ตรงนี้
-      - MSSQL_SA_PASSWORD=cs6969
+      - MSSQL_SA_PASSWORD=YourStrong@Passw0rd
       - MSSQL_PID=Express
     networks:
       - app-network

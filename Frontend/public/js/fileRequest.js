@@ -59,7 +59,7 @@ async function fetchFilesForRequest() {
                     fileIcon.innerHTML = '📄';
 
                     const fileLink = document.createElement('a');
-                    fileLink.href = `http://127.0.0.1:5501/backend/${file.file_path}`;
+                    fileLink.href = `http://localhost:3000/uploads/${file.file_name}`;
                     fileLink.target = '_blank';
                     fileLink.download = file.file_name;
                     fileLink.classList.add('file-link');

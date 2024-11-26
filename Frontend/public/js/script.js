@@ -61,11 +61,11 @@ async function handleLogin() {
             if (data.user.username === '6609650699') {
                 window.location.href = './EmployeePage.html';
             } else if (data.user.type === 'student') {
-                window.location.href = './FormPage.html';
+                window.location.href = './Home.html';
             } else if (data.user.type === 'employee') {
                 window.location.href = './EmployeePage.html';
             } else {
-                messageElement.textContent = 'User type not specified or unknown. Please contact support.';
+                messageElement.textContent = 'User type not specified or unknown.';
             }
         } else {
             messageElement.textContent = 'Username หรือ Password ไม่ถูกต้อง';
@@ -90,8 +90,8 @@ $(document).ready(function(){
 
 document.addEventListener("DOMContentLoaded", function() {
     if (sessionStorage.getItem("isLoggedIn") !== "true") {
-        window.location.href = "Login.html";
-    }
+       window.location.href = "Login.html";
+   }
 });
 
 function logout() {

@@ -112,8 +112,9 @@ document.querySelector('form').addEventListener('submit', function(event) {
         debtAmount: document.getElementById('debt-amount').value || '',
         signature: document.getElementById('signature').value,
         applicationDate: document.getElementById('applicationDate').value,
-        status: 'waiting'
-    };
+        status: 'waiting',
+        username: sessionStorage.getItem('username')
+    };    
 
     localStorage.setItem('formData', JSON.stringify(formData));
 

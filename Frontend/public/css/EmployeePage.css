@@ -306,3 +306,25 @@ margin-right: 15px;
 .menu .item a:hover {
     color: #e74c3c; /* Text color on hover */
 }
+
+.complaint-item {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.complaint-item.approved-request {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.complaint-item.disapproved-request {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
