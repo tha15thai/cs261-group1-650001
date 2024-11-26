@@ -13,7 +13,6 @@ async function confirmRequest() {
         });
 
         if (response.ok) {
-            alert('Request status is now pending.');
             localStorage.removeItem('requestId');
             window.location.href = 'FormPage.html';
         } else {

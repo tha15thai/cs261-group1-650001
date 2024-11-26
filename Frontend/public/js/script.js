@@ -68,7 +68,7 @@ async function handleLogin() {
                 messageElement.textContent = 'User type not specified or unknown. Please contact support.';
             }
         } else {
-            messageElement.textContent = data.message;
+            messageElement.textContent = 'Username หรือ Password ไม่ถูกต้อง';
         }
         
     } catch (error) {

@@ -59,7 +59,7 @@ async function submitRequestForm(event) {
             console.log("Submission failed:", result.message);
         }
     } catch (error) {
-        alert("catch : " + error)
+        alert("ไฟล์ของคุณมีขนาดเกิน 100 kb")
         console.error("Error submitting form:", error);
     }
 }

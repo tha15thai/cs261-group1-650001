@@ -125,7 +125,7 @@ router.get("/requests", async (req, res) => {
             parentTel, advisor, address, district, city, province, reason, status, created_at, updated_at, 
             semester, academicYear, courseCode, courseName, section, debtConfirmation, debtAmount, title
             FROM Requests
-            WHERE status = 'waiting'  -- Filter for only "waiting" status
+            WHERE status = 'pending'  -- Filter for only "waiting" status
             ORDER BY created_at DESC
         `);
         
